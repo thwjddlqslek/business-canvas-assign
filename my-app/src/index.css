@@ -2,7 +2,7 @@
   --color-primary: #000000;
   --color-background: #e3e3e3;
   --color-text-primary: #000000;
-  --color-text-secondary: #636363;
+  --color-text-secondary: #eeeeee;
   --color-border: #345dd9;
 
   /* 버튼 색상 - 추후 이동*/
@@ -10,6 +10,12 @@
   --button-primary-hover: #739fff;
   --button-primary-active: #345dd9;
   --button-primary-disabled: #e3e3e3;
+  --button-primary-border: #4a7cfe;
+  --button-cancel: #bfbfbf;
+  --button-cancel-hover: #dfdfdf;
+  --button-cancel-active: #6a6a6a;
+  --button-cancel-disabled: #e3e3e3;
+  --button-cancel-border: rgb(0, 0, 0);
 }
 
 * {
