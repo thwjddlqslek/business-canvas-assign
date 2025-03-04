@@ -1,0 +1,30 @@
+:root {
+  --color-primary: #000000;
+  --color-background: #e3e3e3;
+  --color-text-primary: #000000;
+  --color-text-secondary: #636363;
+  --color-border: #345dd9;
+
+  /* 버튼 색상 - 추후 이동*/
+  --button-primary: #4a7cfe;
+  --button-primary-hover: #739fff;
+  --button-primary-active: #345dd9;
+  --button-primary-disabled: #e3e3e3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+}
+
+/* 레이아웃 컨테이너 */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
