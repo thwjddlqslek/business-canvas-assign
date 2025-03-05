@@ -1,21 +1,24 @@
 :root {
   --color-primary: #4a7cff;
   --color-background: #f9fafb;
-  --color-text-primary: #000000;
+  --color-text-dark: rgba(0, 0, 0, 0.88);
+  --color-text-primary: rgba(0, 0, 0, 0.65);
   --color-text-secondary: #ffffff;
   --color-border: #345dd9;
+  --color-text-light: rgba(0, 0, 0, 0.25);
 
   /* 버튼 색상 - 추후 이동*/
-  --button-primary: #4a7cff;
+  --button-primary: rgba(74, 124, 254, 1);
   --button-primary-hover: #739fff;
   --button-primary-active: #345dd9;
   --button-primary-disabled: #e3e3e3;
   --button-primary-border: #4a7cfe;
-  --button-cancel: #d1d1d1;
+  --button-cancel: rgba(255, 255, 255, 1);
   --button-cancel-hover: #dfdfdf;
   --button-cancel-active: #c8c8c8;
   --button-cancel-disabled: #e3e3e3;
-  --button-cancel-border: rgb(0, 0, 0);
+  --button-cancel-border: rgba(227, 227, 227, 1);
+  --modal-bg: rgba(0, 0, 0, 0.45);
 }
 
 * {

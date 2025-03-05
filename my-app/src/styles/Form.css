@@ -7,7 +7,9 @@
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
-  color: #333;
+  color: rgba(0, 0, 0, 0.45);
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .required-mark {
@@ -37,4 +39,5 @@
 
 .select-container {
   position: relative;
+  color: var(--color-text-dark);
 }
