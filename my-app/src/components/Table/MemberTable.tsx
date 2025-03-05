@@ -1,34 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/Table.css";
 import Button from "../Button/Button";
 import { MemeberTableProps, MemberProps } from "../Table/types";
-import Checkbox from "./CheckBox";
+import Checkbox from "./Checkbox";
+import { getMembers } from "../../services/storageService";
 
 const MemberTable = ({ onAddBtnClick }: MemeberTableProps) => {
-  // 더미 데이터
-  const [members] = useState<MemberProps[]>([
-    {
-      id: "1",
-      name: "John Doe",
-      address: "서울 강남구",
-      memo: "외국인",
-      joinDate: "2024-10-02",
-      job: "개발자",
-      emailConsent: true,
-    },
-    {
-      id: "2",
-      name: "Foo Bar",
-      address: "서울 서초구",
-      memo: "한국인",
-      joinDate: "2024-10-01",
-      job: "PO",
-      emailConsent: false,
-    },
-  ]);
-
+  const [members, setMembersState] = useState<MemberProps[]>([]);
   const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [selectAll, setSelectAll] = useState<boolean>(false);
+
+  useEffect(() => {
+    const loadedMemberData = getMembers();
+    setMembersState(loadedMemberData);
+  }, []);
 
   const handleSelectAll = () => {
     if (selectAll) {
