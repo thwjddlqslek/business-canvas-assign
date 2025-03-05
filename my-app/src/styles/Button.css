@@ -5,22 +5,22 @@
   cursor: pointer;
   font-weight: 500;
   font-size: 12px;
+  border: none;
 }
 /* 취소 버튼 */
 .button-cancel {
   background-color: var(--button-cancel);
   color: var(--color-text-primary);
-  border-width: 1px;
-  border-color: var(--button-cancel-border);
+  border: 1px solid var(--button-cancel-border);
 }
 
-.button-cancel:hover:not(:disabled) {
+/* .button-cancel:hover:not(:disabled) {
   background-color: var(--button-cancel-hover);
 }
 
 .button-cancel:active:not(:disabled) {
   background-color: var(--button-cancel-active);
-}
+} */
 
 /* 저장  */
 .button-save {

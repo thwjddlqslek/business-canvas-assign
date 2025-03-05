@@ -59,13 +59,10 @@
   height: 18px;
 }
 
-/* 실제 체크박스는 숨기고 커스텀 스타일 적용 */
 .checkbox {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  height: 0;
-  width: 0;
 }
 
 .form-field {
@@ -89,7 +86,6 @@
   left: 0;
 }
 
-/* 체크됐을 때 스타일 */
 .checkbox:checked + .checkbox-label::after {
   content: "✔️";
   top: -3px;
@@ -98,13 +94,11 @@
   font-size: 14px;
 }
 
-/* 테이블에서 체크박스 컬럼 */
 .checkbox-column {
   width: 40px;
   text-align: center;
 }
 
-/* 이메일 수신 동의 컬럼 */
 .consent-column {
   text-align: center;
 }

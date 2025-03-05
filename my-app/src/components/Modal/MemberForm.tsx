@@ -5,7 +5,7 @@ import Textarea from "../Form/Textarea";
 import Date from "../Form/Date";
 import SelectBox from "../Form/SelectBox";
 import { MemberFormData, MemberFormProps } from "./types";
-import Checkbox from "../Table/CheckBox";
+import Checkbox from "../Table/Checkbox";
 
 const defaultFormData: MemberFormData = {
   name: "",
@@ -40,7 +40,6 @@ const MemberForm = ({
     }
   }, [initialData, isOpen]);
 
-  // 각 필드별로 별도의 핸들러 함수 생성
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, name: e.target.value }));
   };
@@ -62,7 +61,6 @@ const MemberForm = ({
   };
 
   const handleEmailConsentChange = (checked: boolean) => {
-    console.log("Email consent changed to:", checked);
     setFormData((prev) => {
       return { ...prev, emailConsent: checked };
     });

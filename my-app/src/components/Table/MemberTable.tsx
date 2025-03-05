@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../../styles/Table.css";
 import Button from "../Button/Button";
-import { MemberProps } from "../Table/types";
+import { MemeberTableProps, MemberProps } from "../Table/types";
 import Checkbox from "./CheckBox";
 
-const MemberTable: React.FC = () => {
+const MemberTable = ({ onAddBtnClick }: MemeberTableProps) => {
   // 더미 데이터
   const [members] = useState<MemberProps[]>([
     {
@@ -55,7 +55,9 @@ const MemberTable: React.FC = () => {
     <div className="table-container">
       <div className="table-header">
         <h2 className="table-title">회원 목록</h2>
-        <Button variant="add">+ 추가</Button>
+        <Button variant="add" onClick={onAddBtnClick}>
+          + 추가
+        </Button>
       </div>
 
       <table className="member-table">

@@ -1,3 +1,6 @@
+export interface MemeberTableProps {
+  onAddBtnClick: () => void;
+}
 export interface MemberProps {
   id: string;
   name: string;
@@ -9,7 +12,8 @@ export interface MemberProps {
 }
 
 export interface CheckboxProps {
-  id: string;
+  id?: string;
+  name?: string;
   checked: boolean;
   onChange?: (checked: boolean) => void;
   label?: string;
