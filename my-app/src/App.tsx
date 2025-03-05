@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import MemberForm from "./components/Modal/MemberForm";
 import MemberTable from "./components/Table/MemberTable";
+import { MemberFormData } from "./components/Modal/types";
 
 function App() {
   const [isMemberFormOpen, setIsMemberFormOpen] = useState(false);
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
 
   const handleOpenMemberForm = () => {
     setIsMemberFormOpen(true);
@@ -13,12 +15,15 @@ function App() {
     setIsMemberFormOpen(false);
   };
 
-  const handleSaveMemberForm = () => {
-    setIsMemberFormOpen(false);
+  const handleSaveMemberForm = (data: MemberFormData) => {
+    setRefreshTrigger((prev) => prev + 1);
   };
   return (
     <div className="container">
-      <MemberTable onAddBtnClick={handleOpenMemberForm} />
+      <MemberTable
+        onAddBtnClick={handleOpenMemberForm}
+        refreshTrigger={refreshTrigger}
+      />
       {isMemberFormOpen && (
         <MemberForm
           isOpen={isMemberFormOpen}

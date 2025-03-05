@@ -46,3 +46,16 @@ export const getMembers = (): MemberProps[] => {
     return initialMembers;
   }
 };
+
+export const addMember = (newMember: any): any => {
+  const currentMembers = getMembers();
+  const newId = String(currentMembers.length + 1);
+  const memberWithId = {
+    ...newMember,
+    id: newId,
+  };
+
+  const updateMembers = [...currentMembers, memberWithId];
+  setMembers(updateMembers);
+  return memberWithId;
+};

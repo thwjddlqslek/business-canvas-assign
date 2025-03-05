@@ -6,6 +6,7 @@ import Date from "../Form/Date";
 import SelectBox from "../Form/SelectBox";
 import { MemberFormData, MemberFormProps } from "./types";
 import Checkbox from "../Table/Checkbox";
+import { addMember } from "../../services/storageService";
 
 const defaultFormData: MemberFormData = {
   name: "",
@@ -67,7 +68,13 @@ const MemberForm = ({
   };
 
   const handleSubmit = () => {
-    onSave(formData);
+    if (!formData.name || !formData.joinDate) {
+      alert("이름과 가입일은 필수 입력 항목입니다.");
+      return;
+    }
+    const newMember = addMember(formData);
+    onSave(newMember);
+    onClose();
   };
 
   return (

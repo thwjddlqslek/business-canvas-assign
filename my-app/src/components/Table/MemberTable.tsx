@@ -5,7 +5,10 @@ import { MemeberTableProps, MemberProps } from "../Table/types";
 import Checkbox from "./Checkbox";
 import { getMembers } from "../../services/storageService";
 
-const MemberTable = ({ onAddBtnClick }: MemeberTableProps) => {
+const MemberTable = ({
+  onAddBtnClick,
+  refreshTrigger = 0,
+}: MemeberTableProps & { refreshTrigger: number }) => {
   const [members, setMembersState] = useState<MemberProps[]>([]);
   const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [selectAll, setSelectAll] = useState<boolean>(false);
@@ -13,7 +16,7 @@ const MemberTable = ({ onAddBtnClick }: MemeberTableProps) => {
   useEffect(() => {
     const loadedMemberData = getMembers();
     setMembersState(loadedMemberData);
-  }, []);
+  }, [refreshTrigger]);
 
   const handleSelectAll = () => {
     if (selectAll) {
