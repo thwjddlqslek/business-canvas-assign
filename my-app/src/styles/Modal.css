@@ -57,3 +57,33 @@
   gap: 8px;
   background-color: rgba(0, 0, 0, 0.02);
 }
+
+/* SmallModal */
+
+.s-modal-container {
+  background-color: white;
+  border-radius: 8px;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  top: inherit;
+  right: 10%;
+  box-shadow: 0 4px 14px var(--color-text-light);
+}
+
+.s-modal-item {
+  padding: 15px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.s-modal-line {
+  height: 1px;
+  background-color: var(--color-text-light);
+  margin: 0 5px 0 5px;
+}
+
+.delete {
+  color: red;
+}

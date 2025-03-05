@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import { MemeberTableProps, MemberProps } from "../Table/types";
 import Checkbox from "./Checkbox";
 import { getMembers } from "../../services/storageService";
+import SmallModal from "../Modal/SmallModal";
 
 const MemberTable = ({
   onAddBtnClick,
@@ -12,6 +13,7 @@ const MemberTable = ({
   const [members, setMembersState] = useState<MemberProps[]>([]);
   const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [selectAll, setSelectAll] = useState<boolean>(false);
+  const [openActionId, setOpenActionId] = useState<string | null>();
 
   useEffect(() => {
     const loadedMemberData = getMembers();
@@ -36,6 +38,14 @@ const MemberTable = ({
       if (selectedRows.length + 1 === members.length) {
         setSelectAll(true);
       }
+    }
+  };
+
+  const handleMoreActions = (id: string) => {
+    if (openActionId === id) {
+      setOpenActionId(null);
+    } else {
+      setOpenActionId(id);
     }
   };
 
@@ -111,8 +121,15 @@ const MemberTable = ({
                   <Checkbox id="email-consent" checked={true} />
                 )}
               </td>
+
               <td className="actions-column">
-                <button className="more-actions">⋮</button>
+                <button
+                  className="more-actions"
+                  onClick={() => handleMoreActions(member.id)}
+                >
+                  ⋮
+                </button>
+                {openActionId === member.id && <SmallModal />}
               </td>
             </tr>
           ))}
