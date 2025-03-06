@@ -4,7 +4,6 @@ import { ModalProps } from "./types";
 import "../../styles/Modal.css";
 
 const Modal: React.FC<ModalProps> = ({
-  isOpen,
   onClose,
   title,
   children,

@@ -23,7 +23,7 @@
 .field-select {
   width: 100%;
   padding: 10px 10px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--button-disabled);
   border-radius: 10px;
   font-size: 14px;
   transition: border-color 0.2s;
@@ -107,8 +107,8 @@
 }
 
 .select-container::after {
-  content: "▼"; /* 간단한 화살표 아이콘 */
-  font-size: 15px; /* 아이콘 크기 */
+  content: "▼";
+  font-size: 15px;
   position: relative;
   right: 25px;
   pointer-events: none;

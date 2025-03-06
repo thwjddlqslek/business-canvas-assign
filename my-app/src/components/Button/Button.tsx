@@ -1,15 +1,6 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import "../../styles/Button.css";
-
-type ButtonVariant = "save" | "cancel" | "add";
-
-interface ButtonProps {
-  children: ReactNode;
-  onClick?: () => void;
-  variant?: ButtonVariant;
-  disabled?: boolean;
-  className?: string;
-}
+import { ButtonProps } from "./types";
 
 const Button: React.FC<ButtonProps> = ({
   children,

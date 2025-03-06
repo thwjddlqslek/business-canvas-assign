@@ -1,4 +1,5 @@
 :root {
+  /* 텍스트 색상 코드 */
   --color-primary: #4a7cff;
   --color-background: #f9fafb;
   --color-light-background: rgba(0, 0, 0, 0.02);
@@ -9,7 +10,7 @@
   --color-border: #345dd9;
   --color-text-light: rgba(0, 0, 0, 0.25);
 
-  /* 버튼 색상 - 추후 이동*/
+  /* 버튼 색상 코드 */
   --button-primary: rgba(74, 124, 254, 1);
   --button-primary-hover: #739fff;
   --button-primary-active: #345dd9;
@@ -21,7 +22,19 @@
   --button-cancel-active: #c8c8c8;
   --button-cancel-disabled: #e3e3e3;
   --button-cancel-border: rgba(227, 227, 227, 1);
+  --button-delete: red;
+
+  /* 테이블 색상 코드 */
+  --table-border-color: #e5e7eb;
+  --table-text-color: #111827;
+  --table-icon-color: #6b7280;
+  --table-blue-check: #4a7cff;
+  --table-background: #f9fafb;
+
+  /* 기타 색상 코드 */
   --modal-shadow: rgba(0, 0, 0, 0.12);
+  --modal-header-border: rgba(240, 240, 240, 1);
+  --modal-close: #a0aec0;
   --box-shadow: rgba(74, 124, 254, 0.15);
   --select-item-hover: rgba(240, 247, 255, 1);
 }
