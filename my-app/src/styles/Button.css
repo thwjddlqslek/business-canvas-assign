@@ -38,6 +38,9 @@
 .button-save:active:not(:disabled) {
   background-color: var(--button-primary-active);
 }
+.button-save:disabled {
+  background-color: var(--button-disabled);
+}
 /* 추가 버튼 */
 .button-add {
   background-color: var(--button-primary);

@@ -67,7 +67,7 @@
   height: auto;
   position: absolute;
   top: inherit;
-  right: 10%;
+  right: 1%;
   box-shadow: 0 4px 14px var(--color-text-light);
 }
 

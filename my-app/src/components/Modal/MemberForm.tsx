@@ -6,7 +6,7 @@ import Date from "../Form/Date";
 import SelectBox from "../Form/SelectBox";
 import { MemberFormData, MemberFormProps } from "./types";
 import Checkbox from "../Table/Checkbox";
-import { addMember } from "../../services/storageService";
+import { addMember, updateMember } from "../../services/storageService";
 
 const defaultFormData: MemberFormData = {
   name: "",
@@ -32,6 +32,7 @@ const MemberForm = ({
   const [formData, setFormData] = useState<MemberFormData>(
     initialData || defaultFormData
   );
+  const isEditMode = !!initialData;
   useEffect(() => {
     if (initialData) {
       setFormData(initialData);
@@ -71,8 +72,16 @@ const MemberForm = ({
       alert("이름과 가입일은 필수 입력 항목입니다.");
       return;
     }
-    const newMember = addMember(formData);
-    onSave(newMember);
+    let saveMember;
+    if (isEditMode && initialData.id) {
+      saveMember = updateMember({
+        ...formData,
+        id: initialData.id,
+      });
+    } else {
+      saveMember = addMember(formData);
+    }
+    onSave(saveMember);
     onClose();
   };
 
@@ -80,10 +89,10 @@ const MemberForm = ({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title={"회원 추가"}
+      title={isEditMode ? "회원 수정" : "회원 추가"}
       onSave={handleSubmit}
       cancelButtonText={"취소"}
-      saveButtonText={"저장"}
+      saveButtonText={isEditMode ? "수정" : "저장"}
       disabled={!(formData.name && formData.joinDate)}
     >
       <form>

@@ -12,6 +12,7 @@ export interface ModalProps {
 }
 
 export interface MemberFormData {
+  id?: string;
   name: string;
   address: string;
   memo: string;
@@ -26,4 +27,9 @@ export interface MemberFormProps {
   onSave: (data: MemberFormData) => void;
   initialData?: MemberFormData;
   isEdit?: boolean;
+}
+
+export interface SmallModalProps {
+  onDelete: () => void;
+  onEdit: () => void;
 }
