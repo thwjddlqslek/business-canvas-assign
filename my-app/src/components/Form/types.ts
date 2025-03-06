@@ -33,7 +33,7 @@ export interface SelectBoxProps {
   label: string;
   name: string;
   value: string;
-  options: SelectOption[];
+  options: readonly SelectOption[];
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   required?: boolean;
 }

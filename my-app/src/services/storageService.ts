@@ -1,32 +1,11 @@
 import { MemberProps } from "../components/Table/types";
 import { MemberFormData } from "../components/Modal/types";
+import { INITIAL_MEMBERS } from "../constants/memberConstants";
 
 const STORAGE_KEY = "memberTableData";
 
-const initialMembers: MemberProps[] = [
-  {
-    id: "1",
-    name: "John Doe",
-    address: "서울 강남구",
-    memo: "외국인",
-    joinDate: "2024-10-02",
-    job: "개발자",
-    emailConsent: true,
-  },
-  {
-    id: "2",
-    name: "Foo Bar",
-    address: "서울 서초구",
-    memo: "한국인",
-    joinDate: "2024-10-01",
-    job: "PO",
-    emailConsent: false,
-  },
-];
-
-// 유효한 멤버만 필터링
 const filterValidMembers = (members: any[]): MemberProps[] => {
-  if (!Array.isArray(members)) return initialMembers;
+  if (!Array.isArray(members)) return [...INITIAL_MEMBERS];
   return members.filter(
     (member) =>
       member !== null &&
@@ -53,20 +32,19 @@ export const getMembers = (): MemberProps[] => {
       const parsedData = JSON.parse(storedData);
       return filterValidMembers(parsedData);
     }
-    setMembers(initialMembers);
-    return initialMembers;
+    setMembers([...INITIAL_MEMBERS]);
+    return [...INITIAL_MEMBERS];
   } catch (e) {
     console.error("로컬 스토리지 데이터 불러오기 오류", e);
     localStorage.removeItem(STORAGE_KEY);
-    setMembers(initialMembers);
-    return initialMembers;
+    setMembers([...INITIAL_MEMBERS]);
+    return [...INITIAL_MEMBERS];
   }
 };
 
-export const addMember = (newMember: any): MemberProps => {
+export const addMember = (newMember: MemberFormData): MemberProps => {
   try {
     const currentMembers = getMembers();
-    // 기존 id 중 가장 큰 값+1으로 해야 중복 이슈가 안생김.
     const maxId = currentMembers.reduce((max, member) => {
       const id = parseInt(member.id);
       return isNaN(id) ? max : Math.max(max, id);

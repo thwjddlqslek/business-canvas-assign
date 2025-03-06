@@ -7,8 +7,10 @@ import SelectBox from "../Form/SelectBox";
 import { MemberFormData, MemberFormProps } from "./types";
 import Checkbox from "../Table/Checkbox";
 import { addMember, updateMember } from "../../services/storageService";
+import { JOB_OPTIONS } from "../../constants/memberConstants";
 
 const defaultFormData: MemberFormData = {
+  id: "",
   name: "",
   address: "",
   memo: "",
@@ -16,12 +18,6 @@ const defaultFormData: MemberFormData = {
   job: "개발자",
   emailConsent: false,
 };
-
-const jobOptions = [
-  { value: "개발자", label: "개발자" },
-  { value: "PO", label: "PO" },
-  { value: "디자이너", label: "디자이너" },
-];
 
 const MemberForm = ({
   isOpen,
@@ -131,7 +127,7 @@ const MemberForm = ({
           label="직업"
           name="job"
           value={formData.job}
-          options={jobOptions}
+          options={JOB_OPTIONS}
           onChange={handlejobChange}
         />
         <Checkbox
