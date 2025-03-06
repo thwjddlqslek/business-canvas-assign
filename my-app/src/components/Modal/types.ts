@@ -12,7 +12,7 @@ export interface ModalProps {
 }
 
 export interface MemberFormData {
-  id?: string;
+  id: string;
   name: string;
   address: string;
   memo: string;

@@ -72,7 +72,7 @@ const MemberForm = ({
       alert("이름과 가입일은 필수 입력 항목입니다.");
       return;
     }
-    let saveMember;
+    let saveMember: MemberFormData | null = null;
     if (isEditMode && initialData.id) {
       saveMember = updateMember({
         ...formData,
@@ -81,7 +81,9 @@ const MemberForm = ({
     } else {
       saveMember = addMember(formData);
     }
-    onSave(saveMember);
+    if (saveMember) {
+      onSave(saveMember);
+    }
     onClose();
   };
 
