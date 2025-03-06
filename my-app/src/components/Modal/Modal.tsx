@@ -12,6 +12,7 @@ const Modal: React.FC<ModalProps> = ({
   onCancel,
   cancelButtonText,
   saveButtonText,
+  disabled,
 }) => {
   const handleCancel = () => {
     if (onCancel) onCancel();
@@ -33,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({
             {cancelButtonText}
           </Button>
           {onSave && (
-            <Button variant="save" onClick={onSave}>
+            <Button variant="save" onClick={onSave} disabled={disabled}>
               {saveButtonText}
             </Button>
           )}

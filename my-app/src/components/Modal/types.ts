@@ -8,6 +8,7 @@ export interface ModalProps {
   onCancel?: () => void;
   cancelButtonText?: string;
   saveButtonText?: string;
+  disabled?: boolean;
 }
 
 export interface MemberFormData {

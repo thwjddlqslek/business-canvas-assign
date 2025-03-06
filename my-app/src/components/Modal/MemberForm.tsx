@@ -32,7 +32,6 @@ const MemberForm = ({
   const [formData, setFormData] = useState<MemberFormData>(
     initialData || defaultFormData
   );
-
   useEffect(() => {
     if (initialData) {
       setFormData(initialData);
@@ -85,6 +84,7 @@ const MemberForm = ({
       onSave={handleSubmit}
       cancelButtonText={"취소"}
       saveButtonText={"저장"}
+      disabled={!(formData.name && formData.joinDate)}
     >
       <form>
         <Input
