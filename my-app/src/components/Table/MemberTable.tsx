@@ -78,6 +78,7 @@ const MemberTable = ({
 
   const handleEditMember = (member: MemberProps) => {
     setEditMember(member);
+    setOpenActionId(null);
   };
 
   const handleUpdateMember = (data: MemberProps) => {
