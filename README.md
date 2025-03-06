@@ -1,5 +1,8 @@
 # 비즈니스 캔버스 프론트엔드 과제 📝
 
+![비캔_화면녹화](https://github.com/user-attachments/assets/452fe594-0064-4200-b9b9-8cb7ea6e349f)  
+
+
 ## 🏗️ 아키텍처 설계
 
 ### 1. 컴포넌트 추상화
@@ -15,6 +18,7 @@
   ```
 
 #### 모달 시스템 계층화
+<img width="1463" alt="비캔1" src="https://github.com/user-attachments/assets/ffbaeb9c-395d-4831-a8c0-9e35d2e0f104" />
 
 - **Modal Components**: `src/components/Modal/`
   ```typescript
@@ -24,6 +28,7 @@
   ```
 
 #### 테이블 시스템
+<img width="643" alt="비캔2" src="https://github.com/user-attachments/assets/f055dab7-09da-4628-a532-24cf058e66a6" />
 
 - **Table Components**: `src/components/Table/`
   ```typescript
