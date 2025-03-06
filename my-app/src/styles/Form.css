@@ -7,7 +7,7 @@
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
+  color: var(--color-text-medium-dark);
   font-weight: 600;
   font-size: 16px;
 }
@@ -22,11 +22,34 @@
 .field-date,
 .field-select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 10px;
   border: 1px solid #e2e8f0;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 14px;
   transition: border-color 0.2s;
+}
+
+.field-input:hover,
+.field-textarea:hover,
+.field-date:hover,
+.field-select:hover {
+  border-color: var(--button-primary);
+}
+
+.field-input:focus,
+.field-textarea:focus,
+.field-date:focus,
+.field-select:focus {
+  border-color: var(--button-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--box-shadow);
+}
+
+.field-input::placeholder,
+.field-textarea::placeholder,
+.field-date::placeholder,
+.field-select::placeholder {
+  color: var(--color-text-light);
 }
 
 .field-textarea {
@@ -37,7 +60,57 @@
   position: relative;
 }
 
-.select-container {
+.field-date {
+  width: 162px;
   position: relative;
   color: var(--color-text-dark);
+}
+
+/* 달력 아이콘 */
+.field-date::-webkit-calendar-picker-indicator {
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.field-date::-webkit-calendar-picker-indicator:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.field-date:not([value]),
+.field-date[value=""] {
+  color: transparent;
+}
+
+.field-date[value]:not([value=""]) {
+  color: var(--color-text-dark);
+}
+
+.date-input-container {
+  position: relative;
+}
+
+.date-input-container::after {
+  content: "Select date";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-light);
+  pointer-events: none;
+}
+
+.field-select {
+  width: 85px;
+  appearance: none;
+  position: relative;
+}
+
+.select-container::after {
+  content: "▼"; /* 간단한 화살표 아이콘 */
+  font-size: 15px; /* 아이콘 크기 */
+  position: relative;
+  right: 25px;
+  pointer-events: none;
+  color: var(--color-text-light);
 }
