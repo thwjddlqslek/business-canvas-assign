@@ -1,4 +1,5 @@
 import { MemberProps } from "../components/Table/types";
+import { MemberFormData } from "../components/Modal/types";
 
 const STORAGE_KEY = "memberTableData";
 
@@ -96,27 +97,27 @@ export const deleteMember = (id: string): void => {
   }
 };
 
-export const updateMember = (member): MemberProps | null => {
+export const updateMember = (updatedMember: MemberFormData) => {
   try {
-    if (!member || !member.id) {
-      console.error("유효하지 않은 멤버 데이터", member);
+    if (!updatedMember || !updatedMember.id) {
+      console.error("유효하지 않은 멤버 데이터", updatedMember);
       return null;
     }
 
     const currentMembers = getMembers();
     const memberIndex = currentMembers.findIndex(
-      (member) => member.id === member.id
+      (member) => member.id === updatedMember.id
     );
 
     if (memberIndex === -1) {
-      console.error("수정할 멤버를 찾을 수 없음", member.id);
+      console.error("수정할 멤버를 찾을 수 없음", updatedMember.id);
       return null;
     }
 
     const updatedMembers = [...currentMembers];
-    updatedMembers[memberIndex] = member;
+    updatedMembers[memberIndex] = updatedMember;
     setMembers(updatedMembers);
-    return member;
+    return updatedMember;
   } catch (e) {
     console.error("로컬 스토리지 수정 오류", e);
     return null;
