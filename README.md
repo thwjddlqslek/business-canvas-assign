@@ -1,7 +1,14 @@
 # 비즈니스 캔버스 프론트엔드 과제 📝
 
-![비캔_화면녹화](https://github.com/user-attachments/assets/452fe594-0064-4200-b9b9-8cb7ea6e349f)  
+![비캔_화면녹화](https://github.com/user-attachments/assets/452fe594-0064-4200-b9b9-8cb7ea6e349f)
 
+## 🛠️ 기술 스택
+
+- React 19
+- TypeScript 5.7
+- Vite 6.2
+
+![비캔_화면녹화](https://github.com/user-attachments/assets/452fe594-0064-4200-b9b9-8cb7ea6e349f)
 
 ## 🏗️ 아키텍처 설계
 
@@ -18,6 +25,7 @@
   ```
 
 #### 모달 시스템 계층화
+
 <img width="1463" alt="비캔1" src="https://github.com/user-attachments/assets/ffbaeb9c-395d-4831-a8c0-9e35d2e0f104" />
 
 - **Modal Components**: `src/components/Modal/`
@@ -28,6 +36,7 @@
   ```
 
 #### 테이블 시스템
+
 <img width="643" alt="비캔2" src="https://github.com/user-attachments/assets/f055dab7-09da-4628-a532-24cf058e66a6" />
 
 - **Table Components**: `src/components/Table/`
@@ -94,7 +103,41 @@ export const INITIAL_MEMBERS = [
   const filterValidMembers = (members: any[]): MemberProps[]
   ```
 
-### 5. 스타일 시스템
+### 5. 필터링 시스템
+
+- **필터 상태 관리**
+
+  ```typescript
+  interface FilterDataProps {
+    name: string[];
+    address: string[];
+    memo: string[];
+    joinDate: string[];
+    job: string[];
+    emailConsent: boolean[];
+  }
+  ```
+
+- **필터링 로직**
+
+  ```typescript
+  const filteredMembers = members.filter((member) => {
+    const nameMatch = selectedFilters.name.length === 0 ||
+                     selectedFilters.name.includes(member.name);
+    const addressMatch = selectedFilters.address.length === 0 ||
+                        selectedFilters.address.includes(member.address);
+    // ... 각 필드별 필터링
+    return nameMatch && addressMatch && ...;
+  });
+  ```
+
+- **필터 UI 구현**
+  ```typescript
+  - 각 컬럼별 독립적인 필터 드롭다운
+  - 다중 선택 지원 (Checkbox 기반)
+  ```
+
+### 6. 스타일 시스템
 
 - **CSS 모듈화**
   ```css
