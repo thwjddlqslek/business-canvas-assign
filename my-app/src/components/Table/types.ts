@@ -18,3 +18,12 @@ export interface CheckboxProps {
   onChange?: (checked: boolean) => void;
   label?: string;
 }
+
+export interface FilterDataProps {
+  name: string[];
+  address: string[];
+  memo: string[];
+  joinDate: string[];
+  job: string[];
+  emailConsent: boolean[];
+}
